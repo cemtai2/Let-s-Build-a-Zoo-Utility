@@ -1,0 +1,48 @@
+.is-fullscreen {
+	background-color: #000 !important;
+}
+
+body, p {
+  color:black;
+}
+
+a{
+  color:#0d0d0d;
+  font-weight: 500;
+}
+
+a:hover{
+  color: #292828;
+  /* font-weight: 700; */
+}
+
+.text-dark{
+  color: black;
+}
+.btn-circle.btn-lg {
+  width: 40px;
+  height: 40px;
+  padding: 5px 8px;
+  font-size: 12px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+form label {font-weight:600}
+
+.feedback{position: fixed;}
+
+.feedback.left{left:5px; bottom:15px}
+.feedback.right{right:5px; bottom:15px}
+
+.feedback .dropdown-menu{width: 290px;height: 250px;bottom: 50px;}
+.feedback.left .dropdown-menu{ left: 0px}
+.feedback.right .dropdown-menu{ right: 0px}
+.feedback .hideme{ display: none}
+
+/* override Bootstrap default colours */
+:root {--bs-primary: #334f6b; 
+  --bs-secondary: #494e53; 
+  --bs-primary-rgb: rgb(51,79,107);
+  --bs-secondary-rgb: rgb(73,78,83);
+}

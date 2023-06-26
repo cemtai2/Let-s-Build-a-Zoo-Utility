@@ -1,0 +1,6 @@
+[22-Jun-2023 18:38:15 America/Boise] PHP Parse error:  Unclosed '(' on line 27 in /home1/kendramo/public_html/zoo_test/users/init.php on line 28
+[22-Jun-2023 20:21:41 America/Boise] PHP Warning:  require_once(../users/init.php): Failed to open stream: No such file or directory in /home1/kendramo/public_html/zoo/index.php on line 2
+[22-Jun-2023 20:21:41 America/Boise] PHP Fatal error:  Uncaught Error: Failed opening required '../users/init.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home1/kendramo/public_html/zoo/index.php:2
+Stack trace:
+#0 {main}
+  thrown in /home1/kendramo/public_html/zoo/index.php on line 2
