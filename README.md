@@ -69,4 +69,4 @@ To Do:
 6.  Upload all variant images to site
 7.  Add all variant image urls to database
 8.  Add ability for users to filter animals by expected variant of offspring
-9.  Create git repository
+9.  Create git repository - 100%
