@@ -27,6 +27,7 @@
 	//execute statement
 	if ($conn->query($sql) === TRUE) {
 		echo "Record inserted sucessfully.";
+		hybridsTable();
 	}
 	else {
 		echo "Error inserting record: " . $conn->error;

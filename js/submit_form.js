@@ -31,7 +31,6 @@ function form_submit() {
 	var animal_location = document.getElementById('animal_location').value;
 	
 	//form validation
-	
 	//regex expression to make sure the field contains a string with only letters
 	const regex = /^[a-zA-Z]+$/;
 	const regex2 = /^[a-zA-Z0-9\s]+$/;
@@ -72,7 +71,7 @@ function form_submit() {
 		const form = document.getElementById('myForm');
 		
 		//update the myTable table with the newly submitted animal
-		var xhr = new XMLHttpRequest();
+/*		var xhr = new XMLHttpRequest();
 		
 		//prepare function to be executed on response
 		xhr.onreadystatechange = function() {
@@ -83,11 +82,11 @@ function form_submit() {
 		};
 		
 		//prepare to send to insert_into.php outputTable function
-		xhr.open("GET", "query.php?action=outputTable");
+		xhr.open("GET", "query.php?function=outputTable" + encodeURIComponent(value), true);
 		
 		//send the request
 		xhr.send();
-		
+*/		
 		//reset the form and move cursor to top form field
 		form.reset();
 		document.getElementById("parent_one").focus();
