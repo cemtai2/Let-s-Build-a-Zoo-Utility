@@ -9,6 +9,7 @@
 	$parent_two = $_GET["parent_two"];
 	$hybrid_name = $_GET["hybrid_name"];
 	$animal_name = $_GET["animal_name"];
+	$animal_location = $_GET["animal_location"];
 	$userID = $user->data()->id;
 	
 	//echo variables
@@ -21,7 +22,7 @@
 	$conn = conn();
 
 	//prepare SQL statement
-	$sql = "INSERT INTO hybrids (hybrids_parent_one, hybrids_parent_two, hybrids_hybrid_name, hybrids_animal_name, fk_hybrids_users) VALUES ('$parent_one', '$parent_two', '$hybrid_name', '$animal_name', '$userID')";
+	$sql = "INSERT INTO hybrids (hybrids_parent_one, hybrids_parent_two, hybrids_hybrid_name, hybrids_animal_name, hybrids_animal_location, fk_hybrids_users) VALUES ('$parent_one', '$parent_two', '$hybrid_name', '$animal_name', '$animal_location', '$userID')";
 	
 	//execute statement
 	if ($conn->query($sql) === TRUE) {
@@ -32,5 +33,4 @@
 	}
 
 	$conn->close();
-
 ?>

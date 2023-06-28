@@ -28,11 +28,13 @@ function form_submit() {
 	var parent_two = document.getElementById('parent_two').value;
 	var hybrid_name = document.getElementById('hybrid_name').value;
 	var animal_name = document.getElementById('animal_name').value;
+	var animal_location = document.getElementById('animal_location').value;
 	
 	//form validation
 	
 	//regex expression to make sure the field contains a string with only letters
-	const regex = /^[^\s]+$/;
+	const regex = /^[a-zA-Z]+$/;
+	const regex2 = /^[a-zA-Z0-9\s]+$/;
 	
 	//this if statement checks if the input matches the type string and contains only letters
 	if (
@@ -40,10 +42,12 @@ function form_submit() {
 		typeof parent_two === 'string' &&
 		typeof hybrid_name === 'string' &&
 		typeof animal_name === 'string' &&
+		typeof animal_location === 'string' &&
 		regex.test(parent_one) &&
 		regex.test(parent_two) &&
 		regex.test(hybrid_name) &&
-		regex.test(animal_name )
+		regex.test(animal_name) &&
+		regex2.test(animal_location)
 	) {
 		//all of the parameters are strings and have no white space
 		
@@ -56,14 +60,33 @@ function form_submit() {
 				document.getElementById("form_message_hybrid").innerHTML = this.responseText;
 			}
 		};
-
-		xhttp.open("GET", "insert_into.php?parent_one=" + parent_one + "&parent_two=" + parent_two + "&hybrid_name=" + hybrid_name + "&animal_name=" + animal_name, true);
 		
+		//prepare send to insert_into.php file with the entered variables
+		xhttp.open("GET", "insert_into.php?parent_one=" + parent_one + "&parent_two=" + parent_two + "&hybrid_name=" + hybrid_name + "&animal_name=" + animal_name + "&animal_location=" + animal_location, true);
+		
+		//send the variables to the php file, form will either reset and display a
+		//sucess message, or fail verification
 		xhttp.send();
-
 				
 		//submit valid form
 		const form = document.getElementById('myForm');
+		
+		//update the myTable table with the newly submitted animal
+		var xhr = new XMLHttpRequest();
+		
+		//prepare function to be executed on response
+		xhr.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("myTable").innerHTML = this.responseText;
+				alert("here");
+			}
+		};
+		
+		//prepare to send to insert_into.php outputTable function
+		xhr.open("GET", "query.php?action=outputTable");
+		
+		//send the request
+		xhr.send();
 		
 		//reset the form and move cursor to top form field
 		form.reset();
@@ -73,7 +96,8 @@ function form_submit() {
 	else {
 		
 		//create an array to iterate over each form element and determin which are good and which are bad, then add classes to the elements
-		const inputs = [document.getElementById('parent_one'), document.getElementById('parent_two'), document.getElementById('hybrid_name'), document.getElementById('animal_name')];
+		const inputs = [document.getElementById('parent_one'), document.getElementById('parent_two'), document.getElementById('hybrid_name'), document.getElementById('animal_name'),
+		document.getElementById('animal_location')];
 		
 		for (let i = 0; i < inputs.length; i++) {
 			//test each element and add the class good or bad

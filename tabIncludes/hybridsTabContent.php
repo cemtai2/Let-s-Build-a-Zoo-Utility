@@ -1,4 +1,4 @@
-	<div class="tab-pane fade" id="hybrids-tab-pane" role="tabpanel" aria-labelledby="hybrids-tab">
+	<div class="tab-pane fade show active" id="hybrids-tab-pane" role="tabpanel" aria-labelledby="hybrids-tab">
 			<div class="container" id="hybrids-tab">
 				<div class="row">
 					<div class="col-12">
@@ -20,6 +20,8 @@
 							<input class="form-control-lg" type="text" id="hybrid_name" name="hybrid_name" placeholder="Hybrid Name" required /><br><br>
 
 							<input class="form-control-lg" type="text" id="animal_name" name="animal_name" placeholder="Animal Name" required /><br><br>
+
+							<input class="form-control-lg" type="text" id="animal_location" name="animal_location" placeholder="Animal Location" required /><br><br>
 
 							<button class="btn btn-outline-dark" onclick="form_submit(event);" class="btn btn-outline-dark">Submit</button>
 						</form>
@@ -53,8 +55,9 @@
 						</div> <!--row-->
 						
 						<div class="row">
-							<table class="table" id="myTable">
-							</table>					
+							
+								<?php hybridsTable(); ?>
+										
 						</div>
 					</div> <!--col-6-->
 				</div> <!--row-->
