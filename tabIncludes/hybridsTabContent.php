@@ -56,7 +56,7 @@
 						
 						<div class="row">
 							
-								<?php hybridsTable(); ?>
+								<?php initTable(); ?>
 										
 						</div>
 					</div> <!--col-6-->

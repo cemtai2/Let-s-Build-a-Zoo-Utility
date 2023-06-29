@@ -70,23 +70,10 @@ function form_submit() {
 		//submit valid form
 		const form = document.getElementById('myForm');
 		
-		//update the myTable table with the newly submitted animal
-/*		var xhr = new XMLHttpRequest();
+		if (typeof resultPHP !== 'undefined') {
+			document.getElementById("myTable").innerHTML = resultPHP;
+		}
 		
-		//prepare function to be executed on response
-		xhr.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("myTable").innerHTML = this.responseText;
-				alert("here");
-			}
-		};
-		
-		//prepare to send to insert_into.php outputTable function
-		xhr.open("GET", "query.php?function=outputTable" + encodeURIComponent(value), true);
-		
-		//send the request
-		xhr.send();
-*/		
 		//reset the form and move cursor to top form field
 		form.reset();
 		document.getElementById("parent_one").focus();
