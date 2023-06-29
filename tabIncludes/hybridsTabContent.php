@@ -1,4 +1,3 @@
-	<div class="tab-pane fade show active" id="hybrids-tab-pane" role="tabpanel" aria-labelledby="hybrids-tab">
 			<div class="container" id="hybrids-tab">
 				<div class="row">
 					<div class="col-12">
@@ -37,7 +36,8 @@
 								<form method="post" id="parent-one">			
 									<input list="parentOne" name="one" id="one" class="form-control" onFocus="this.value=''">
 										<datalist id="parentOne">
-										  <?php populateDatalist('hybrids_parent_one'); ?>
+										  <?php //$column, $table, $userIDColumn
+											populateDatalist('hybrids_parent_one', 'hybrids', 'fk_hybrids_users'); ?>
 										</datalist>
 								</form>
 							</div>
@@ -48,7 +48,7 @@
 								<form method="post" id="parent-two">			
 									<input list="parentTwo" name="two" id="two" class="form-control" onFocus="this.value=''">
 										<datalist id="parentTwo">
-											<?php populateDatalist('hybrids_parent_two'); ?>
+											<?php populateDatalist('hybrids_parent_two', 'hybrids', 'fk_hybrids_users'); ?>
 										</datalist>
 								</form>
 							</div> <!--col-6-->

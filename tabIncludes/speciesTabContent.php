@@ -1,4 +1,3 @@
-		<div class="tab-pane fade" id="species-tab-pane" role="tabpanel" aria-labelledby="species-tab">			 
 			<div class="container" id="species-tab">
 				<div class="row">
 					<div class="col-12">

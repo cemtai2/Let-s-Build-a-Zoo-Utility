@@ -55,29 +55,35 @@ function form_submit() {
 
 		//create the function to be executed when the server response is ready
 		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("form_message_hybrid").innerHTML = this.responseText;
+			if (xhttp.readyState === XMLHttpRequest.DONE) {
+				if (xhttp.status === 200) {
+					document.getElementById("form_message_hybrid").innerHTML = this.responseText;
 				
-				//second XMLHttpRequest object, to update table
-				var xhttp2 = new XMLHttpRequest();
+					//second XMLHttpRequest object, to update table
+					var xhttp2 = new XMLHttpRequest();
 				
-				//handle second server response
-				xhttp2.onreadystatechange = function() {
-					if (xhttp2.readyState == 4 && xhttp2.status == 200) {
-						var updatedTable = xhttp2.responseText;
-						
-						document.getElementById("myTable").innerHTML = updatedTable;
-					}//if xhttp2 readstate close
-					else {
-						
-					}
-					
-				};//xhttp2 function close
+					//handle second server response
+					xhttp2.onreadystatechange = function() {
+						if (xhttp2.readyState === XMLHttpRequest.DONE) {
+							if (xhttp2.status === 200) {
+								var updatedTable = xhttp2.responseText;
+								alert(updatedTable);
+								
+								document.getElementById("myTable").innerHTML = this.responseText;
+							}//if xhttp2 readstate close
+							else {
+								alert("Error updating myTable. Status: " + xhttp2.status);
+							}
+						}
+					};//xhttp2 function close
 				
-				xhttp2.open("GET", "query.php?action=hybridsTable", true);
-				xhttp2.send();
-				
-			}//first if statement close
+					xhttp2.open("GET", "query.php?action=hybridsTable", true);
+					xhttp2.send();
+				}//first if statement close
+				else {
+					alert("Error inserting record.  Status: " + xhttp.status);
+				}
+			}
 		};//xhttp.onreadystatechange close
 		
 		//prepare send to insert_into.php file with the entered variables
@@ -90,9 +96,9 @@ function form_submit() {
 		//submit valid form
 		const form = document.getElementById('myForm');
 		
-		if (typeof resultPHP !== 'undefined') {
-			document.getElementById("myTable").innerHTML = resultPHP;
-		}
+		//if (typeof resultPHP !== 'undefined') { 
+		//	document.getElementById("myTable").innerHTML = resultPHP;
+		//}
 		
 		//reset the form and move cursor to top form field
 		form.reset();

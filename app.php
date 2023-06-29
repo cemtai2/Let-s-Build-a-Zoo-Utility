@@ -55,7 +55,7 @@ ini_set('display_errors', 1);
 	<div class="container">
 		<ul class="nav nav-tabs" id="myTabs" role="tablist">
 			<li class="nav-item" role="presentation">
-				<button class="nav-link" id="animal_tab" data-bs-toggle="tab" data-bs-target="#animal-tab-pane" type="button" aria-controls="animal-tab-pane">Animals</a>
+				<button class="nav-link active" id="animal_tab" data-bs-toggle="tab" data-bs-target="#animal-tab-pane" type="button" aria-controls="animal-tab-pane">Animals</a>
 			</li>
 
 			<li class="nav-item" role="presentation">			
@@ -63,7 +63,7 @@ ini_set('display_errors', 1);
 			</li>
 
 			<li class="nav-item" role="presentation">
-				<button class="nav-link active" id="hybrid_tab" data-bs-toggle="tab" data-bs-target="#hybrids-tab-pane" type="button" aria-controls="hybrids-tab-pane">Hybrids</a>
+				<button class="nav-link" id="hybrid_tab" data-bs-toggle="tab" data-bs-target="#hybrids-tab-pane" type="button" aria-controls="hybrids-tab-pane">Hybrids</a>
 			</li>
 		
 			<li class="nav-item" role="presentation">			
@@ -73,19 +73,23 @@ ini_set('display_errors', 1);
 	</div>
 	
 	<div class="tab-content" id="animalTabContent">
-		<?php include("tabIncludes/animalTabContent.php"); ?> 
+		<div class="tab-pane fade show active" id="animal-tab-pane" role="tabpanel" aria-labelledby="animal-tab">
+			<?php include("tabIncludes/animalTabContent.php"); ?> 
 	</div>
 	
 	<div class="tab-content" id="breedingTabContent"> 
-		<?php include("tabIncludes/breedingTabContent.php"); ?>
+		<div class="tab-pane fade" id="breeding-tab-pane" role="tabpanel" aria-labelledby="breeding-tab">			 
+			<?php include("tabIncludes/breedingTabContent.php"); ?>
 	</div>
 		
 	<div class="tab-content" id="hybridTabContent">
-		<?php include("tabIncludes/hybridsTabContent.php"); ?>
+		<div class="tab-pane fade" id="hybrids-tab-pane" role="tabpanel" aria-labelledby="hybrids-tab">
+			<?php include("tabIncludes/hybridsTabContent.php"); ?>
 	</div> <!--myTabContent-->
 	
 	<div class="tab-content" id="speciesTabContent"> 
-		<?php include("tabIncludes/speciesTabContent.php"); ?>
+		<div class="tab-pane fade" id="species-tab-pane" role="tabpanel" aria-labelledby="species-tab">			 
+			<?php include("tabIncludes/speciesTabContent.php"); ?>
 	</div>
 
 </body>

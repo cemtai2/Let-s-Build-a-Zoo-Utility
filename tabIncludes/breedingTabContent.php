@@ -1,4 +1,3 @@
-		<div class="tab-pane fade" id="breeding-tab-pane" role="tabpanel" aria-labelledby="breeding-tab">			 
 			<div class="container" id="breeding-tab">
 				<div class="row">
 					<div class="col-12">

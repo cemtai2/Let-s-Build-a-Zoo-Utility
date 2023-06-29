@@ -1,4 +1,3 @@
-		<div class="tab-pane fade" id="animal-tab-pane" role="tabpanel" aria-labelledby="animal-tab">
 			<div class="container" id="animal-tab">
 				<div class="row">
 					<div class="col-12">
@@ -11,8 +10,11 @@
 						<h3 align="center">New Animal</h3>
 
 						<form method="post" class="needs-validation" id="animalsForm" novalidate>
-							<input class="form-control-lg" type="text" id="animal-species" name="animal-species" placeholder="Species" required /><br><br>
-
+							<input list="parentOne" name="one" id="one" class="form-control" onFocus="this.value=''">
+								<datalist id="parentOne">
+									<?php populateDatalist('species_name', 'species'); ?>
+								</datalist>
+							
 							<input class="form-control-lg" type="text" id="animal-variant" name="animal-variant" placeholder="Variant" required /><br><br>
 
 							<input class="form-control-lg" type="text" id="animal-name" name="animal-name" placeholder="Name" required /><br><br>
