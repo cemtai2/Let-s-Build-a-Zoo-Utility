@@ -29,8 +29,8 @@
 		echo "Record inserted sucessfully.";
 		
 		//get the new table
-		$results = hybridsTable(); 
-		echo $results;
+//		$results = hybridsTable(); 
+//		echo $results;
 	}
 	else {
 		echo "Error inserting record: " . $conn->error;
