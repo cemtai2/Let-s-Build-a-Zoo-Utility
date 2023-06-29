@@ -97,7 +97,6 @@ function outputTable() {
   $output .= "</table>";
 
   echo $output;
-	return($output);
 }
 
 function hybridsTable() {
@@ -106,7 +105,7 @@ function hybridsTable() {
     
     $sql = "SELECT * FROM hybrids WHERE fk_hybrids_users = " . $userID;
     $results = $conn->query($sql);
-    $output = "<table class='table' id='myTable'><tr><th>Parent One</th><th>Parent Two</th><th>Species</th><th>Name</th><th>Location</th>";	
+    $output = "<table class='table' id='test'><tr><th>Parent One</th><th>Parent Two</th><th>Species</th><th>Name</th><th>Location</th>";	
 	
     if ($results && $results->num_rows > 0) {
         while ($row = $results->fetch_assoc()) {

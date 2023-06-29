@@ -73,7 +73,7 @@ ini_set('display_errors', 1);
 	</div>
 	
 	<div class="tab-content" id="animalTabContent">
-		<div class="tab-pane fade show active" id="animal-tab-pane" role="tabpanel" aria-labelledby="animal-tab">
+		<div class="tab-pane fade" id="animal-tab-pane" role="tabpanel" aria-labelledby="animal-tab">
 			<?php include("tabIncludes/animalTabContent.php"); ?> 
 	</div>
 	
@@ -83,7 +83,7 @@ ini_set('display_errors', 1);
 	</div>
 		
 	<div class="tab-content" id="hybridTabContent">
-		<div class="tab-pane fade" id="hybrids-tab-pane" role="tabpanel" aria-labelledby="hybrids-tab">
+		<div class="tab-pane fade show active" id="hybrids-tab-pane" role="tabpanel" aria-labelledby="hybrids-tab">
 			<?php include("tabIncludes/hybridsTabContent.php"); ?>
 	</div> <!--myTabContent-->
 	

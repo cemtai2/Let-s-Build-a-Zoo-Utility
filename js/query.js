@@ -42,3 +42,11 @@ function eventListen(elemID) {
 		}
 	}
 }
+
+function variantImages() {
+	var species = document.getElementById("animal_species").value;
+	
+	var directory = '../img/' + species;
+	
+	alert(directory);
+}

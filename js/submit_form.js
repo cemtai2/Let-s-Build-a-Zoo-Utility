@@ -23,6 +23,8 @@ function form_submit() {
 	//prevent form submission unless form is validated
 	event.preventDefault();
 	
+	document.getElementById("myTable").innerHTML = "test";
+	alert("pause");
 	//get form values
 	var parent_one = document.getElementById('parent_one').value;
 	var parent_two = document.getElementById('parent_two').value;
@@ -50,16 +52,26 @@ function form_submit() {
 	) {
 		//all of the parameters are strings and have no white space
 		
-		//create new XMLHttpRequest object
-		var xhttp = new XMLHttpRequest();
+		//request var to pass to xhttpRequest function for the insert request
+		var request ="insert_into.php?parent_one=" + parent_one + "&parent_two=" + parent_two + "&hybrid_name=" + hybrid_name + "&animal_name=" + animal_name + "&animal_location=" + animal_location;
+		
+		//insert request
+		xhttpRequest ("GET", request, "form_message_hybrid");
+		
+		//table update request
+		xhttpRequest ("GET", "query.php?action=hybridsTable", "myTable");
+		
+/*		var xhttp = new XMLHttpRequest();
 
 		//create the function to be executed when the server response is ready
 		xhttp.onreadystatechange = function() {
 			if (xhttp.readyState === XMLHttpRequest.DONE) {
 				if (xhttp.status === 200) {
 					document.getElementById("form_message_hybrid").innerHTML = this.responseText;
-				
-					//second XMLHttpRequest object, to update table
+					
+					
+					
+/*					//second XMLHttpRequest object, to update table
 					var xhttp2 = new XMLHttpRequest();
 				
 					//handle second server response
@@ -67,8 +79,7 @@ function form_submit() {
 						if (xhttp2.readyState === XMLHttpRequest.DONE) {
 							if (xhttp2.status === 200) {
 								var updatedTable = xhttp2.responseText;
-								alert(updatedTable);
-								
+																
 								document.getElementById("myTable").innerHTML = this.responseText;
 							}//if xhttp2 readstate close
 							else {
@@ -98,7 +109,7 @@ function form_submit() {
 		
 		//if (typeof resultPHP !== 'undefined') { 
 		//	document.getElementById("myTable").innerHTML = resultPHP;
-		//}
+		//}*/
 		
 		//reset the form and move cursor to top form field
 		form.reset();
@@ -121,4 +132,25 @@ function form_submit() {
 			}			
 		}
 	}	
+}
+
+function xhttpRequest (method, page, elemID) {
+
+	var xhttp2 = new XMLHttpRequest();
+
+	//handle second server response
+	xhttp2.onreadystatechange = function() {
+		if (xhttp2.readyState === XMLHttpRequest.DONE) {
+			if (xhttp2.status === 200) {
+				document.getElementById(elemID).innerHTML = this.responseText;
+			}//if xhttp2 readstate close
+			else {
+				alert("Error updating myTable. Status: " + xhttp2.status);
+			}
+		}
+	};//xhttp2 function close
+		
+	xhttp2.open(method, page, true);
+	xhttp2.send();
+
 }
