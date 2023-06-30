@@ -48,13 +48,10 @@ function variantImages() {
 	
 	var directory = species;
 	
-	alert("variantImages Directory: " + directory);
 	fetchImg(directory);
 }
 
 function fetchImg(directory) {
-	
-	alert("fetchImg Directory: " + directory);
 	
 	var xhr = new XMLHttpRequest();
  	
@@ -69,7 +66,7 @@ function fetchImg(directory) {
 		}
 	};
 		
-		xhr.open('GET', 'getImg.php', true);
+		xhr.open('GET', 'getImg.php?directory=' + directory , true);
 		xhr.send();
 	//displayImage("/zoo/img/Duck/Duck2.webp")
 }

@@ -2,21 +2,14 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
+$animal = $_GET['directory'];
+
 //get the directory
-$directory = 'img/Duck/';
+$directory = 'img/' . $animal . '/';//$_GET['directory'];
 
 //echo "Here: " . $directory;
 //get a list of files from the directory
 $files = scandir($directory);
-
-/*foreach ($files as $key => $value) {
-    // Skip directories and non-image files 
-    if (is_dir($directory . $value) || !is_image_file($value)) {
-        continue;
-    }
-    
-    echo "<img src='" . $directory . $value . "'>";
-}*/
 
 function is_image_file($file) {
     $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
