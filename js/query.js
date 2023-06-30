@@ -46,9 +46,10 @@ function eventListen(elemID) {
 function variantImages() {
 	var species = document.getElementById("animal_species").value;
 	
-	var directory = species;
+	//clear the container
+	document.getElementById("animal-variant-container").innerHTML = "";
 	
-	fetchImg(directory);
+	fetchImg(species);
 }
 
 function fetchImg(directory) {
@@ -58,7 +59,6 @@ function fetchImg(directory) {
 	xhr.onreadystatechange = function() {
 		 if (this.readyState == 4 && this.status == 200) {
 			var files = JSON.parse(xhr.responseText);
-			alert("hello");
 			//loop  through files and display
 			files.forEach(function(file) {
 				displayImage(directory + '/' + file);
@@ -75,7 +75,8 @@ function displayImage(filePath) {
 	
 	//create a new img element
 	var img = document.createElement('img');
-	img.src = filePath;
+	var path = '/zoo/img/' + filePath;
+	img.src = path;
 
 	//get the image container
 	var imgCont = document.getElementById("animal-variant-container");

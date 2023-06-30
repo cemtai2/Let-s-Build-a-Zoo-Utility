@@ -5,7 +5,7 @@
 $animal = $_GET['directory'];
 
 //get the directory
-$directory = 'img/' . $animal . '/';//$_GET['directory'];
+$directory = 'img/' . $animal . '/';
 
 //echo "Here: " . $directory;
 //get a list of files from the directory
