@@ -24,3 +24,13 @@ h6 {
 	border: 2px solid #000;
 	margin-bottom: -1em;
 }
+
+#animal-variant-container img {
+	height: 40px;
+	margin: 5px 10px;
+}
+
+#animal-variant-container button {
+	border: 0;
+	background-color: inherit;
+}

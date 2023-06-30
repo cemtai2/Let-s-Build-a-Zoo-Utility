@@ -72,15 +72,28 @@ function fetchImg(directory) {
 }
 
 function displayImage(filePath) {
+
+	//create button element
+	var button = document.createElement('button');
 	
 	//create a new img element
 	var img = document.createElement('img');
 	var path = '/zoo/img/' + filePath;
 	img.src = path;
-
-	//get the image container
-	var imgCont = document.getElementById("animal-variant-container");
-
-	//add the image to the img container
-	imgCont.appendChild(img);	
+	
+    // append the img element to the button element
+    button.appendChild(img);
+    
+    // add click event listener to the button
+    button.addEventListener('click', function() {
+        // handle button click event here
+        // you can access the file path using filePath variable
+        alert('Image clicked! File path: ' + filePath);
+    });
+    
+    // get the image container
+    var imgCont = document.getElementById('animal-variant-container');
+    
+    // add the button to the img container
+    imgCont.appendChild(button);	
 }
