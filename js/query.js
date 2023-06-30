@@ -86,9 +86,11 @@ function displayImage(filePath) {
     
     // add click event listener to the button
     button.addEventListener('click', function() {
-        // handle button click event here
-        // you can access the file path using filePath variable
-        alert('Image clicked! File path: ' + filePath);
+		//prevent default behavior
+		event.preventDefault();
+		
+		//set the hidden form field
+		document.getElementById("animal-variant").value = filePath;
     });
     
     // get the image container
