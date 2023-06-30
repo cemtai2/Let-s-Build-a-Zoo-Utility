@@ -55,15 +55,15 @@ ini_set('display_errors', 1);
 	<div class="container">
 		<ul class="nav nav-tabs" id="myTabs" role="tablist">
 			<li class="nav-item" role="presentation">
-				<button class="nav-link active" id="animal_tab" data-bs-toggle="tab" data-bs-target="#animal-tab-pane" type="button" aria-controls="animal-tab-pane">Animals</a>
+				<button class="nav-link" id="animal_tab" data-bs-toggle="tab" data-bs-target="#animal-tab-pane" type="button" aria-controls="animal-tab-pane">Animals</a>
 			</li>
 
 			<li class="nav-item" role="presentation">			
 				<button class="nav-link" id="breeding_tab" data-bs-toggle="tab" data-bs-target="#breeding-tab-pane" type="button" aria-controls="breeding-tab-pane" aria-selected="true">Breeding Pairs</a>
 			</li>
 
-			<li class="nav-item" role="presentation">
-				<button class="nav-link" id="hybrid_tab" data-bs-toggle="tab" data-bs-target="#hybrids-tab-pane" type="button" aria-controls="hybrids-tab-pane">Hybrids</a>
+			<li class="nav-item" role="presentation"> 
+				<button class="nav-link active" id="hybrid_tab" data-bs-toggle="tab" data-bs-target="#hybrids-tab-pane" type="button" aria-controls="hybrids-tab-pane">Hybrids</a>
 			</li>
 		
 			<li class="nav-item" role="presentation">			

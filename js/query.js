@@ -46,7 +46,43 @@ function eventListen(elemID) {
 function variantImages() {
 	var species = document.getElementById("animal_species").value;
 	
-	var directory = '../img/' + species;
+	var directory = species;
 	
-	alert(directory);
+	alert("variantImages Directory: " + directory);
+	fetchImg(directory);
+}
+
+function fetchImg(directory) {
+	
+	alert("fetchImg Directory: " + directory);
+	
+	var xhr = new XMLHttpRequest();
+ 	
+	xhr.onreadystatechange = function() {
+		 if (this.readyState == 4 && this.status == 200) {
+			var files = JSON.parse(xhr.responseText);
+			alert("hello");
+			//loop  through files and display
+			files.forEach(function(file) {
+				displayImage(directory + '/' + file);
+			});
+		}
+	};
+		
+		xhr.open('GET', 'getImg.php', true);
+		xhr.send();
+	//displayImage("/zoo/img/Duck/Duck2.webp")
+}
+
+function displayImage(filePath) {
+	
+	//create a new img element
+	var img = document.createElement('img');
+	img.src = filePath;
+
+	//get the image container
+	var imgCont = document.getElementById("animal-variant-container");
+
+	//add the image to the img container
+	imgCont.appendChild(img);	
 }

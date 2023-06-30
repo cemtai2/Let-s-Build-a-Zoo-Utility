@@ -123,7 +123,7 @@ function hybridsTable() {
     }
 
    $output .= "</table>";
-
+	
     return $output;
 }
 

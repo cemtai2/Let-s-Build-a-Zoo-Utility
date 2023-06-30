@@ -16,7 +16,7 @@
                         </datalist> <br><br>
 					
 					<div id="animal-variant-container" class="form-control-lg">
-						test
+						
 					</div>
 					
                     <input type="hidden" id="animal-variant" name="animal-variant" placeholder="Variant" required /><br><br>

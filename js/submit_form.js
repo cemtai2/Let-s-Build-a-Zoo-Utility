@@ -23,8 +23,6 @@ function form_submit() {
 	//prevent form submission unless form is validated
 	event.preventDefault();
 	
-	document.getElementById("myTable").innerHTML = "test";
-	alert("pause");
 	//get form values
 	var parent_one = document.getElementById('parent_one').value;
 	var parent_two = document.getElementById('parent_two').value;
@@ -54,12 +52,14 @@ function form_submit() {
 		
 		//request var to pass to xhttpRequest function for the insert request
 		var request ="insert_into.php?parent_one=" + parent_one + "&parent_two=" + parent_two + "&hybrid_name=" + hybrid_name + "&animal_name=" + animal_name + "&animal_location=" + animal_location;
+	
+		//table update request
+		xhttpRequest ("GET", "query.php?action=hybridsTable", "myTable");
+		
 		
 		//insert request
 		xhttpRequest ("GET", request, "form_message_hybrid");
 		
-		//table update request
-		xhttpRequest ("GET", "query.php?action=hybridsTable", "myTable");
 		
 /*		var xhttp = new XMLHttpRequest();
 
