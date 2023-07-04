@@ -58,30 +58,26 @@ if (isset($_GET['function'])) {
   $function = $_GET['function'];
 
   // Call the desired PHP function based on the provided function name
-  if ($function === 'outputTable') {
+  if ($function == 'outputTable') {
     outputTable();
   }
 }
 
-$action = isset($_GET['action']) ? $_GET['action'] : '';
-
-if ($action === 'hybridsTable') {
-	hybridsTable();
-}
-
+//function that controls hybrid table filtering
 function outputTable() {
 
   $value = $_GET['value'];
-
+  global $userID;
+	  
   $conn = conn();
-  $sql = "SELECT * FROM hybrids WHERE hybrids_parent_one = '$value' OR hybrids_parent_two = '$value'";
+  $sql = "SELECT * FROM hybrids WHERE hybrids_parent_one = '$value' OR hybrids_parent_two = '$value' && fk_hybrids_users = '$userID'";
 
   $results = $conn->query($sql);
 
   	$output = "<table class='table'><tr><th>Parent One</th><th>Parent Two</th><th>Species</th><th>Name</th><th>Location</th>";
 
   if ($results && $results->num_rows > 0) {
-    while ($row = $results->fetch_assoc()) {
+    while ($row = $results->fetch_assoc()) { 
       $output .= "<tr>";
       $output .= "<td>" . $row['hybrids_parent_one'] . "</td>";
       $output .= "<td>" . $row['hybrids_parent_two'] . "</td>";
@@ -99,34 +95,7 @@ function outputTable() {
   echo $output;
 }
 
-function hybridsTable() {
-    $conn = conn();
-    global $userID;
-    
-    $sql = "SELECT * FROM hybrids WHERE fk_hybrids_users = " . $userID;
-    $results = $conn->query($sql);
-    $output = "<table class='table' id='test'><tr><th>Parent One</th><th>Parent Two</th><th>Species</th><th>Name</th><th>Location</th>";	
-	
-    if ($results && $results->num_rows > 0) {
-        while ($row = $results->fetch_assoc()) {
-            $output .= "<tr>";
-            $output .= "<td>" . $row['hybrids_parent_one'] . "</td>";
-            $output .= "<td>" . $row['hybrids_parent_two'] . "</td>";
-            $output .= "<td>" . $row['hybrids_hybrid_name'] . "</td>";
-            $output .= "<td>" . $row['hybrids_animal_name'] . "</td>";
-            $output .= "<td>" . $row['hybrids_animal_location'] . "</td>";
-            $output .= "<td>" . "</td>";
-            $output .= "</tr>";
-        }
-    } else {
-        $output .= "<tr><td colspan='4'>No results found.</td></tr>";
-    }
-
-   $output .= "</table>";
-	
-    return $output;
-}
-
+//function to initilaize the hybrid table
 function initTable() {
     $conn = conn();
     global $userID;

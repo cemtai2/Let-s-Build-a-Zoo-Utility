@@ -53,14 +53,9 @@ function form_submit() {
 		//request var to pass to xhttpRequest function for the insert request
 		var request ="insert_into.php?parent_one=" + parent_one + "&parent_two=" + parent_two + "&hybrid_name=" + hybrid_name + "&animal_name=" + animal_name + "&animal_location=" + animal_location;
 	
-		//table update request
-		xhttpRequest ("GET", "query.php?action=hybridsTable", "myTable");
-		
-		
 		//insert request
 		xhttpRequest ("GET", request, "form_message_hybrid");
-		
-		
+
 /*		var xhttp = new XMLHttpRequest();
 
 		//create the function to be executed when the server response is ready
@@ -112,9 +107,14 @@ function form_submit() {
 		//}*/
 		
 		//reset the form and move cursor to top form field
+		var form = document.getElementById('myForm');
+		
 		form.reset();
 		document.getElementById("parent_one").focus();
 		document.getElementById("parent_one").select();
+
+		//table update request
+		xhttpRequest ("GET", "hybridsTable.php", "tableWrapper");
 	}
 	else {
 		
@@ -152,5 +152,20 @@ function xhttpRequest (method, page, elemID) {
 		
 	xhttp2.open(method, page, true);
 	xhttp2.send();
+}
 
+function validateData(elementID) {
+	alert(elementID);
+	
+	if (elementID !== "animal_location") {
+		alert("Not animal location!");
+		const regex = /^[a-zA-Z]+$/;
+	}
+	else if (elementID == "animal_location") {
+		alert("Animal location!");
+		const regex = /^[a-zA-Z0-9\s]+$/;
+	}
+	else {
+		alert("error");
+	}
 }

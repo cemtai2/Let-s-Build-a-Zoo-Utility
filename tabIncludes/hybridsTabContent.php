@@ -12,7 +12,8 @@
 						<span id="form_message_hybrid"></span>
 
 						<form method="post" class="needs-validation" id="myForm" novalidate>
-							<input class="form-control-lg" type="text" id="parent_one" name="parent_one" placeholder="Parent One" required /><br><br>
+							<input class="form-control-lg" type="text" id="parent_one" name="parent_one" placeholder="Parent One" required /><br>
+							<span class='invalid-feedback'></span><br>
 
 							<input class="form-control-lg" type="text" id="parent_two" name="parent_two" placeholder="Parent Two" required /><br><br>
 
@@ -54,7 +55,7 @@
 							</div> <!--col-6-->
 						</div> <!--row-->
 						
-						<div class="row">
+						<div class="row" id="tableWrapper">
 							
 								<?php initTable(); ?>
 										

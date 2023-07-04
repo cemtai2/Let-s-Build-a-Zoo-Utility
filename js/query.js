@@ -1,9 +1,21 @@
+//add event listeners
+/*document.addEventListener("DOMContentLoaded", function () {
+	
+document.getElementById('parent_one').addEventListener('change', validateData);
+document.getElementById('parent_two').addEventListener('change', validateData);
+document.getElementById('hybrid_name').addEventListener('change', validateData);
+document.getElementById('animal_name').addEventListener('change', validateData);
+document.getElementById('animal_location').addEventListener('change', validateData);
+});*/  
+
+//add event listeners to the datalists on the hybrids tab and call the event handler eventListen
 document.addEventListener("DOMContentLoaded", function () {
     //set the column variables
 	eventListen("one");
 	eventListen("two");
-});
+});                              
 
+//function that handles filtering the table on the hybrids tab
 function eventListen(elemID) {
   var selectFirst = document.getElementById(elemID);
   var selectedValue = '';
@@ -24,6 +36,7 @@ function eventListen(elemID) {
     }
   });
 
+	//function to handle the XMLHttpRequest for the table on the hybrids page.
 	function sendValueToPHP(value) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function () {
@@ -34,6 +47,7 @@ function eventListen(elemID) {
 
 		if (value.trim() !== "") {
 			// Encode the value using encodeURIComponent to handle special characters properly
+			
 			xhttp.open("GET", "query.php?function=outputTable&value=" + encodeURIComponent(value), true);
 			xhttp.send();
 		} else {
