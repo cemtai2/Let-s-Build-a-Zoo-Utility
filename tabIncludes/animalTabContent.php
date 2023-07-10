@@ -9,6 +9,8 @@
             <div class="col-6">
                 <h3 align="center">New Animal</h3>
 
+				<span id="form_message_animals"></span>
+				
                 <form method="post" class="needs-validation" id="animalsForm" novalidate>
                     <input list="species" name="species" id="animal_species" class="form-control-lg" onFocus="this.value=''" onchange="variantImages()" placeholder="Species">
                         <datalist id="species">
@@ -25,7 +27,7 @@
 
                     <input class="form-control-lg" type="text" id="animal-location" name="animal-location" placeholder="Location" required /><br><br>
 
-                    <button class="btn btn-outline-dark" onclick="animal_form_submit(event);" class="btn btn-outline-dark">Submit</button>
+                    <button class="btn btn-outline-dark" onclick="animals_form_submit(event);" class="btn btn-outline-dark">Submit</button>
                 </form>
             </div>
 
@@ -57,16 +59,10 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <table class="table" id="animals-table">
-                            <tr>
-                                <th>Species</th>
-                                <th>Variant</th>
-                                <th>Age</th>
-                                <th>Name</th>
-                                <th>Location</th>
-                            </tr>
-                        </table>
+                    <div class="col-12" id="animalTableWrapper">
+                        
+						<?php initAnimalTable(); ?>
+						
                     </div>
                 </div>
             </div>

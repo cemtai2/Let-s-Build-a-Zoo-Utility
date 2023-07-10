@@ -34,3 +34,11 @@ h6 {
 	border: 0;
 	background-color: inherit;
 }
+
+.off {
+	opacity: .5;
+}
+
+.on {
+	opacity: 1; 
+}

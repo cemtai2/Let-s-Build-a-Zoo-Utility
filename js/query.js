@@ -94,6 +94,7 @@ function displayImage(filePath) {
 	var img = document.createElement('img');
 	var path = '/zoo/img/' + filePath;
 	img.src = path;
+	button.classList = 'off';
 	
     // append the img element to the button element
     button.appendChild(img);
@@ -105,7 +106,12 @@ function displayImage(filePath) {
 		
 		//set the hidden form field
 		document.getElementById("animal-variant").value = filePath;
-    });
+		document.getElementById("")
+		
+		//call the class toggle function
+		toggleButton(button);
+		
+    });	
     
     // get the image container
     var imgCont = document.getElementById('animal-variant-container');
@@ -114,3 +120,18 @@ function displayImage(filePath) {
     imgCont.appendChild(button);	
 }
 
+function toggleButton(button) {
+	//toggle the class of the variant buttons on and off
+  var container = document.getElementById('animal-variant-container');
+  var buttons = container.getElementsByTagName('button');
+
+  // Switch off other buttons
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i] !== button) {
+      buttons[i].classList.remove('on');
+    }
+  }
+
+  // Toggle the class of the clicked button
+  button.classList.toggle('on');
+}

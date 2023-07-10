@@ -12,16 +12,16 @@
 						<span id="form_message_hybrid"></span>
 
 						<form method="post" class="needs-validation" id="myForm" novalidate>
-							<input class="form-control-lg" type="text" id="parent_one" name="parent_one" placeholder="Parent One" required /><br>
+							<input class="form-control-lg" type="text" id="hybrid_parent_one" name="hybrid_parent_one" placeholder="Parent One" required /><br>
 							<span class='invalid-feedback'></span><br>
 
-							<input class="form-control-lg" type="text" id="parent_two" name="parent_two" placeholder="Parent Two" required /><br><br>
+							<input class="form-control-lg" type="text" id="hybrid_parent_two" name="hybrid_parent_two" placeholder="Parent Two" required /><br><br>
 
 							<input class="form-control-lg" type="text" id="hybrid_name" name="hybrid_name" placeholder="Hybrid Name" required /><br><br>
 
-							<input class="form-control-lg" type="text" id="animal_name" name="animal_name" placeholder="Animal Name" required /><br><br>
+							<input class="form-control-lg" type="text" id="hybrid_animal_name" name="hybrid_animal_name" placeholder="Animal Name" required /><br><br>
 
-							<input class="form-control-lg" type="text" id="animal_location" name="animal_location" placeholder="Animal Location" required /><br><br>
+							<input class="form-control-lg" type="text" id="hybrid_animal_location" name="hybrid_animal_location" placeholder="Animal Location" required /><br><br>
 
 							<button class="btn btn-outline-dark" onclick="form_submit(event);" class="btn btn-outline-dark">Submit</button>
 						</form>

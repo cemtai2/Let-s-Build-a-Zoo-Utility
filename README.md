@@ -75,4 +75,10 @@ Bugs:
  - Hybrids tab table doesn't always update after an animal is added or deleted
  - Hybrids tab must be reloaded if it fails validation
  - No explicit error messages when hybrid form fails validation
- - Need different name for form and table - currently myForm and myTable
+ - Need more detailed name for myForm and myTable
+ - Need more detailed name for form_submit
+ - Need more detailed name for tableWrapper
+ - Need more detailed name for initTable
+ 
+Bug Fixes:
+ - Updated parent_one, parent_two, animal_name, and animal_location to hybrid_parent_one, hybrid_parent_two, and hybrid_animal_location
