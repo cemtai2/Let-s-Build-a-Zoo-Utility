@@ -23,7 +23,7 @@
 	$conn = conn();
 
 	//prepare SQL statement
-	$sql = "INSERT INTO animals (animal_species, animal_variant, hybrids_hybrid_name, animal_location, fk_animals_users) VALUES ('$animal_species', '$animal_variant', '$animal_name', '$animal_location', '$userID')";
+	$sql = "INSERT INTO animals (animals_species, animals_variant_url, animals_name, animals_location, fk_animals_users) VALUES ('$animal_species', '$animal_variant', '$animal_name', '$animal_location', '$userID')";
 	
 	//execute statement
 	if ($conn->query($sql) === TRUE) {

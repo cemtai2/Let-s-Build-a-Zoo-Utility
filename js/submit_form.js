@@ -94,15 +94,13 @@ function animals_form_submit() {
 	var animal_name = document.getElementById('animal-name').value;
 	var animal_location = document.getElementById('animal-location').value;
 	
-	alert("Animal Species: " + animal_species + " Animal Variant: " + animal_variant + " Animal Name: " + animal_name + " Animal Location: " + animal_location);
-	
 	//form validation
 	//regex expression to make sure the field contains a string with only letters
 	const regex = /^[a-zA-Z]+$/;
 	const regex2 = /^[a-zA-Z0-9\s]+$/;
 	
 	//this if statement checks if the input matches the type string and contains only letters
-	if (
+	/*if (
 		typeof animal_species === 'string' &&
 		//typeof animal_variant === 'string' &&
 		typeof animal_name === 'string' &&
@@ -113,7 +111,7 @@ function animals_form_submit() {
 		regex2.test(animal_location)
 	) {
 		//all of the parameters are strings and have no white space
-		
+		*/
 		//request var to pass to xhttpRequest function for the insert request
 		var request ="insert_into_animal.php?animal_species=" + animal_species + "&animal_variant=" + animal_variant + "&animal_name=" + animal_name + "&animal_location=" + animal_location;
 	
@@ -129,7 +127,7 @@ function animals_form_submit() {
 
 		//table update request
 		xhttpRequest ("GET", "animalsTable.php", "animalTableWrapper");
-	}
+	/*}
 	else {
 		
 		//create an array to iterate over each form element and determin which are good and which are bad, then add classes to the elements
@@ -145,7 +143,7 @@ function animals_form_submit() {
 				inputs[i].classList.add('bad');
 			}			
 		}
-	}	
+	} */	
 }
 
 function xhttpRequest (method, page, elemID) {
@@ -199,5 +197,23 @@ function deleteHybrid(hybridPK) {
 	document.getElementById("parent_one").select();
 	
 	xhttpRequest ("GET", "hybridsTable.php", "tableWrapper");
+
+}
+
+function deleteAnimals(animalPK) {
+	//this function allows users to delete the animal with the primary key of the animal they clicked on.
+	
+	alert("you clicked animal number " + animalPK);
+	
+	//send the xhttprequest to the animalsDelete.php file including the animal primary key
+	xhttpRequest ("GET", "animalsDelete.php?animalPK=" + animalPK, "form_message_animals");
+
+	var form = document.getElementById('animalsForm');
+
+	form.reset();
+	document.getElementById("animal_species").focus();
+	document.getElementById("animal_species").select();
+	
+	xhttpRequest ("GET", "animalsTable.php", "animalTableWrapper");
 
 }

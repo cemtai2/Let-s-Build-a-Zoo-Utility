@@ -30,6 +30,10 @@ h6 {
 	margin: 4px;
 }
 
+td img {
+	height: 40px;
+}
+
 #animal-variant-container button {
 	border: 0;
 	background-color: inherit;

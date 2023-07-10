@@ -18,7 +18,7 @@
             $output .= "<td><img src='/zoo/img/" . $row['animals_variant_url'] . "'></td>";
             $output .= "<td>" . $row['animals_name'] . "</td>";
             $output .= "<td>" . $row['animals_location'] . "</td>";
-            $output .= "<td><a onclick='deleteHybrid(" . $row['pk_hybrids'] . ")'>Delete</a></td>";
+            $output .= "<td><a onclick='deleteAnimals(" . $row['pk_animals'] . ")'>Delete</a></td>";
             $output .= "</tr>";
         }
     } else {
