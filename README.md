@@ -70,3 +70,9 @@ To Do:
 7.  Add all variant image urls to database
 8.  Add ability for users to filter animals by expected variant of offspring
 9.  Create git repository - 100%
+
+Bugs:
+ - Hybrids tab table doesn't always update after an animal is added or deleted
+ - Hybrids tab must be reloaded if it fails validation
+ - No explicit error messages when hybrid form fails validation
+ - Need different name for form and table - currently myForm and myTable
