@@ -113,3 +113,4 @@ function displayImage(filePath) {
     // add the button to the img container
     imgCont.appendChild(button);	
 }
+

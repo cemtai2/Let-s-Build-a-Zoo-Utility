@@ -56,56 +56,6 @@ function form_submit() {
 		//insert request
 		xhttpRequest ("GET", request, "form_message_hybrid");
 
-/*		var xhttp = new XMLHttpRequest();
-
-		//create the function to be executed when the server response is ready
-		xhttp.onreadystatechange = function() {
-			if (xhttp.readyState === XMLHttpRequest.DONE) {
-				if (xhttp.status === 200) {
-					document.getElementById("form_message_hybrid").innerHTML = this.responseText;
-					
-					
-					
-/*					//second XMLHttpRequest object, to update table
-					var xhttp2 = new XMLHttpRequest();
-				
-					//handle second server response
-					xhttp2.onreadystatechange = function() {
-						if (xhttp2.readyState === XMLHttpRequest.DONE) {
-							if (xhttp2.status === 200) {
-								var updatedTable = xhttp2.responseText;
-																
-								document.getElementById("myTable").innerHTML = this.responseText;
-							}//if xhttp2 readstate close
-							else {
-								alert("Error updating myTable. Status: " + xhttp2.status);
-							}
-						}
-					};//xhttp2 function close
-				
-					xhttp2.open("GET", "query.php?action=hybridsTable", true);
-					xhttp2.send();
-				}//first if statement close
-				else {
-					alert("Error inserting record.  Status: " + xhttp.status);
-				}
-			}
-		};//xhttp.onreadystatechange close
-		
-		//prepare send to insert_into.php file with the entered variables
-		xhttp.open("GET", "insert_into.php?parent_one=" + parent_one + "&parent_two=" + parent_two + "&hybrid_name=" + hybrid_name + "&animal_name=" + animal_name + "&animal_location=" + animal_location, true);
-		
-		//send the variables to the php file, form will either reset and display a
-		//sucess message, or fail verification
-		xhttp.send();
-				
-		//submit valid form
-		const form = document.getElementById('myForm');
-		
-		//if (typeof resultPHP !== 'undefined') { 
-		//	document.getElementById("myTable").innerHTML = resultPHP;
-		//}*/
-		
 		//reset the form and move cursor to top form field
 		var form = document.getElementById('myForm');
 		
@@ -168,4 +118,22 @@ function validateData(elementID) {
 	else {
 		alert("error");
 	}
+}
+
+function deleteHybrid(hybridPK) {
+	//this function allows users to delete the hybrid animal with the primary key of the hybrid they clicked on.
+	
+	alert("you clicked animal number " + hybridPK);
+	
+	//send the xhttprequest to the hybridsDelete.php file including the hybrid primary key
+	xhttpRequest ("GET", "hybridsDelete.php?hybridPK=" + hybridPK, "form_message_hybrid");
+
+	var form = document.getElementById('myForm');
+
+	form.reset();
+	document.getElementById("parent_one").focus();
+	document.getElementById("parent_one").select();
+	
+	xhttpRequest ("GET", "hybridsTable.php", "tableWrapper");
+
 }

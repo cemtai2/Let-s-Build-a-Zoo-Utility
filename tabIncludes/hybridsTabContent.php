@@ -6,7 +6,7 @@
 				</div>
 				
 				<div class="row"> 
-					<div class="col-6">
+					<div class="col-4">
 						<h3 align="center">New Hybrid</h3>
 
 						<span id="form_message_hybrid"></span>
@@ -27,7 +27,7 @@
 						</form>
 					</div><!--col-6-->
 
-					<div class="col-6">
+					<div class="col-8">
 						<h3 align='center'>Search</h3>
 
 						<div class="row">
