@@ -35,7 +35,7 @@ Major functionality:
 2.  Site layout - 70%
   -- Animals tab - 75%
   -- Breeding pairs tab - 25%
-  -- Hybrids tab - 75%
+  -- Hybrids tab - 100%
   -- Species tab - 100%
 
 Additional functionality per tab
@@ -51,12 +51,12 @@ Additional functionality per tab
   -- Filter by location - 0%
   -- Update pair info - 0%
 
-3.  Hybrids tab - 60%
+3.  Hybrids tab - 95%
   -- Add new hybrid - 100%
   -- Filter by parent one species - 100%
   -- Filter by parent two species - 100%
-  -- Table for all hybrids by user - 0%
-  -- Edit/update hybrids - 0%
+  -- Table for all hybrids by user - 100%
+  -- Edit/update hybrids - 75%
   
 4.  Species tab - 100%
 
